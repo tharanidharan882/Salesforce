@@ -1,0 +1,9 @@
+<template>
+    <lightning-input label="Enter your age" onchange={handleChange} ></lightning-input>
+    <lightning-input label="Maximum Age" onchange={checkAgeLimit}></lightning-input> 
+    <lightning-button variant="brand" label="Show" onclick={handleShow} ></lightning-button>
+    <br>
+    <template if:true={showAge}>
+      {value}
+    </template>
+</template>

@@ -1,0 +1,9 @@
+<template>
+    <lightning-card  class="slds-m-around_large">
+        <lightning-input label="Enter your age" onchange={handleChange}></lightning-input> 
+        <lightning-button variant="brand" label="Show" onclick={handleShow} class="slds-m-top_large"></lightning-button>
+        <template if:true={showAge}>
+            <h1>Your Age is {ageData}</h1>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,63 @@
+<template>
+    <lightning-card title="Contact">
+        <div class="slds-var-m-around_large">
+
+            <lightning-layout>
+                <lightning-layout-item size="3">
+                    <lightning-input class="searchText" label="Search" type="Search" placeholder="Search Text Here">
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-var-m-top_large slds-var-m-left_small" size="7">
+                    <lightning-button label="Search" onclick={handleSearch}></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-var-m-left_small">
+                    <lightning-combobox label="Page Size" options={pageSize} value={selectedPageSize}
+                        onchange={handlePageSize}>
+                    </lightning-combobox>
+                </lightning-layout-item>
+            </lightning-layout>
+            <br>
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Emails</th>
+                        <th>Phone</th>
+                        <th>Account Name</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={displayContactList} for:item="contact">
+                        <tr key={contact}>
+                            <td>{contact.Name}</td>
+                            <td>{contact.Email}</td>
+                            <td>{contact.Phone}</td>
+                            <td>
+                                <template if:true={contact.AccountId}>
+                                    {contact.Account.Name}
+                                </template>
+                            </td>
+                            <td>{contact.Type__c}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+            <br>
+            <div class="slds-grid slds-grid_align-end ">
+                <div class="slds-col">
+                    <lightning-button label="First" onclick={first} disabled={disableFirst}></lightning-button>
+                </div>
+                <div class="slds-col">
+                    <lightning-button label="Previous" onclick={previous} disabled={disableFirst}></lightning-button>
+                </div>
+                <div class="slds-col">
+                    <lightning-button label="Next" onclick={next} disabled={disableNext}></lightning-button>
+                </div>
+                <div class="slds-col">
+                    <lightning-button label="Last" onclick={last} disabled={disableNext}></lightning-button>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

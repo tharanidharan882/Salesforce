@@ -1,0 +1,18 @@
+<template>
+    <lightning-card>
+        <div class="slds-m-around_large">
+ 
+            <lightning-input label="Enter FirstName" value={firstName} onchange={handleFirstName} ></lightning-input>
+            <lightning-input label="Enter LastName" value={lastName} onchange={hanldeLastName}></lightning-input>
+            <lightning-input label="Enter Email" value={email} onchange={hanldeEmail}></lightning-input>
+            <lightning-button label="Submit" onclick={handleSubmit}></lightning-button>
+
+
+            
+            <lightning-input label="Search Name" value={searchText} onchange={handleChange}></lightning-input>
+            <lightning-datatable columns={column} data={contacts} key-field="Id" onsave={handlesave} draft-values={draftvalues}></lightning-datatable>
+
+            
+        </div>
+    </lightning-card>
+</template>

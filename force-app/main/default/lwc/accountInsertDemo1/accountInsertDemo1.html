@@ -1,0 +1,13 @@
+<template>
+    <lightning-card>
+        <div class="slds-m-around_large">
+            <lightning-input label="Enter Name" value={Name} onchange={handleName} ></lightning-input>
+            <lightning-combobox  label="Enter Rating"  value={selectedrating} options={RatingOption} onchange={handleRating}> </lightning-combobox>  
+            <lightning-input label="Active" type="checkbox" onchange={handleActive_c}></lightning-input>
+            <lightning-button label="Submit" onclick={handleSubmit}></lightning-button>
+            <lightning-button  label="Delete Selected" onclick={getSelectedRec}></lightning-button>
+            <lightning-datatable columns={column} data={Accounts} key-field="Id" onrowaction={handleRowAction} ></lightning-datatable>
+
+        </div>
+    </lightning-card>
+</template>

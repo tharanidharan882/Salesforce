@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="My To Do List">
+        <div class="slds-box slds-m-around_medium slds-align_absolute-center">
+            <lightning-layout>
+                <lightning-layout-item>
+            <lightning-input 
+                type="type" 
+                placeholder="Title..." 
+                class="slds-input slds-m-right_x-small" 
+                onchange={handleInputChange} 
+                value={newTask}>
+            </lightning-input>
+        </lightning-layout-item>
+            <lightning-layout-item>
+            <lightning-button 
+                label="Add" 
+                variant="brand" 
+                onclick={addTask}>
+            </lightning-button>
+        </lightning-layout-item>
+            </lightning-layout>
+            
+        </div>
+        <ul>
+            <template for:each={tasks} for:item="task">
+                <li key={task.id} class="slds-box slds-m-around_small">
+                    <lightning-input type="checkbox"></lightning-input><div>{task.name}</div>
+                    <!-- <lightning-button label="Add" onclick={deleteTask} data-id={task.id}></lightning-button> -->
+                    <lightning-button-icon icon-name="utility:delete"  alternative-text="Delete"   class="slds-m-left_xx-small" title="Delete" onclick={deleteTask} data-id={task.id}></lightning-button-icon>
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+</template>

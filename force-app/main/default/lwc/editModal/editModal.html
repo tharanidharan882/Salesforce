@@ -1,0 +1,16 @@
+<template>
+    <lightning-modal is-open={isOpen} onclose={handleClose}>
+        <lightning-card title="Edit Account">
+            <lightning-input label="Name" value={account.Name} onchange={handleNameChange}></lightning-input>
+            <lightning-combobox
+                label="Rating"
+                value={account.Rating}
+                options={ratingOptions}
+                onchange={handleRatingChange}
+            ></lightning-combobox>
+            <lightning-input type="checkbox" label="Active" checked={account.Active__c} onchange={handleActiveChange}></lightning-input>
+            <lightning-button variant="neutral" label="Cancel" onclick={handleClose}></lightning-button>
+            <lightning-button variant="brand" label="Save" onclick={handleSave}></lightning-button>
+        </lightning-card>
+    </lightning-modal>
+</template>

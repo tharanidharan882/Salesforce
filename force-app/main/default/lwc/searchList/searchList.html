@@ -1,0 +1,13 @@
+<template>
+    <lightning-input type="search" onchange={handleInputChange} value={Entervalue}>
+    </lightning-input>
+        <div style="height: 300px;">
+            <lightning-datatable
+                    key-field="name"
+                    data={result}
+                    columns={columns}>
+            </lightning-datatable>
+        </div>
+
+    
+</template>

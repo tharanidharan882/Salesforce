@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="Vehicle Information">
+        <div class="slds-m-around_medium">
+        <lightning-combobox 
+            label="Vehicle Name" 
+            value={selectedVehicle}
+            placeholder="Select a Vehicle"
+            options={vehicleOptions}
+            onchange={handleVehicleChange}>
+        </lightning-combobox>
+        <lightning-input 
+            label="Number of Vehicles" 
+            value={numberOfVehicles} 
+            onchange={handleNumberChange}
+            type="number">
+        </lightning-input>
+        <div class="slds-m-top_medium">
+        <lightning-button 
+            label="Add" 
+            onclick={handleAddClick} >
+        </lightning-button>
+        </div>
+        <div class="slds-m-top_medium">
+       <template if:true={vehicles}>
+            <template for:each={vehicleList} for:item="vechicle">
+                <li key={vechicle.vehicle}>
+                    {vechicle.vehicle}, {vechicle.number}
+                    <lightning-button 
+                        label="Delete" 
+                        data-id={vechicle.vehicle} 
+                        onclick={handleDel}
+                        class="slds-m-left_x-small">
+                    </lightning-button>
+                </li>
+            </template>
+        </template>
+        </div>
+    </div>
+    </lightning-card>
+</template>
