@@ -14,6 +14,7 @@ export default class AccountInsertDemo1 extends NavigationMixin(LightningElement
         { label: 'Delete', name: 'Delete' }
     ];
     column = [  { label: 'Name', fieldName: 'Name' },
+        
         { label: 'Rating', fieldName: 'Rating' },
         {
             type: 'action',
